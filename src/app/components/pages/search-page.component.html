@@ -1,0 +1,23 @@
+<p>
+  For a full breakdown, please visit
+  <a
+    href="https://thomaswildetech.com/software-development/angular/ng-bootstrap/table/#table-with-api-data"
+    >thomaswildetech.com</a
+  >.
+</p>
+<div class="input-group mb-3">
+  <input
+    type="text"
+    class="form-control"
+    [(ngModel)]="searchTerm"
+    placeholder="Search country names"
+    (keydown.enter)="onSearch()"
+  />
+  <div class="input-group-append">
+    <button class="btn btn-primary" (click)="onSearch()">Search</button>
+  </div>
+</div>
+
+<div *ngIf="apiResults$ | async as apiResults">
+  <app-country-table [apiResults]="apiResults"></app-country-table>
+</div>
